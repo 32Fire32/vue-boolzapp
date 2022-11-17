@@ -2,8 +2,8 @@
 
 .mainpage-container {
     margin:auto;
-    width: 1200px;
-    height: 100%;
+    width: 1530px;
+    height: 920px;
     display: flex;
     justify-content: space-between;
 }
@@ -11,6 +11,7 @@
 body {
     height: 100vh;
     color:#fff;
+    display: flex;
 }
 
 /* TYPO */
@@ -19,3 +20,13 @@ body {
 }
 
 /* BOTTONI */
+
+/* IMMAGINI */
+
+img {
+    width: 50px;
+    border-radius: 100%;
+}
+
+
+

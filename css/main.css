@@ -1,17 +1,34 @@
+/* HEADER */
+
+header {
+    width: 100%;
+    background-color: #eaeaea;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
 /* MAIN */
 
 main {
     overflow-y: auto;
     width: calc(100vw - 3.125rem);
     background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* HEADER */
+.chat {
+    overflow-y: auto;
+    flex-grow: 1;
+}
 
-header {
+/* FOOTER */
+.chat_form {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 5.625rem;
+    background-color: #eaeaea;
     display: flex;
     align-items: center;
     justify-content: space-between;
