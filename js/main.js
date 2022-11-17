@@ -4,6 +4,7 @@ const { createApp } = Vue
 createApp({
     data() {
       return {
+        contact_tab: 0,
         contacts: [
             {
                 name: 'Michele',
@@ -167,8 +168,15 @@ createApp({
                 ],
             }
         ]
-      }
+      }      
+    },
+
+    methods : {
+        console(){
+            console.log(this.contacts[1].messages)
+        }
     }
+    
   }).mount('#app')
 
 
