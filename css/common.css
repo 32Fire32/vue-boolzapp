@@ -2,16 +2,16 @@
 
 .mainpage-container {
     margin:auto;
-    width: 1530px;
-    height: 920px;
+    width: 80%;
+    height: 90%;
     display: flex;
     justify-content: space-between;
 }
 
 body {
     height: 100vh;
-    color:#fff;
     display: flex;
+    color: red;
 }
 
 /* TYPO */
@@ -19,13 +19,25 @@ body {
     font-family: 'Lato', sans-serif;   
 }
 
+small {
+    color: #b6b9bb;
+}
+
 /* BOTTONI */
+
+
 
 /* IMMAGINI */
 
 img {
     width: 50px;
     border-radius: 100%;
+}
+
+/* FA-SOLID */
+
+.fa-solid {
+    margin: 0 5px;
 }
 
 

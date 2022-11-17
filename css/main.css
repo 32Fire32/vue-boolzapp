@@ -2,11 +2,30 @@
 
 header {
     width: 100%;
-    background-color: #eaeaea;
+    background-color: var(--secondary-color);
     height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.active_contact_chat {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+.active_contact_icons a {
+    color: #b1b1b1;
+}
+
+.active_contact_info span{
+    display: block;
+}
+
+.active_contact_info {
+    flex-grow: 1;
 }
 
 /* MAIN */
@@ -28,8 +47,13 @@ main {
 /* FOOTER */
 .chat_form {
     width: 100%;
-    background-color: #eaeaea;
+    background-color: var(--secondary-color);
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+/* HOVER */
+.active_contact_icons a:hover {
+    color: #4e4e4e;
 }

@@ -2,7 +2,6 @@
 
 aside {
     width: 535px;
-    background-color: rgb(0, 17, 255);
 }
 
 .aside-container {
@@ -13,18 +12,98 @@ aside {
 }
 
 .main_user {
-    background-color: #eaeaea;
+    background-color: var(--secondary-color);
     height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+.main_user_icons a {
+    color: #b1b1b1;
+}
+
+.mute {
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 55px;
+    border-radius: 100%;
+}
+
+.fa-bell-slash {
+    color: #8edafc;
+    font-size: 1.5rem;
+
 }
 
 .new_notifications {
+    display: flex;
+    align-items: center;
+    padding: 20px;
     background-color: #8edafc;
     height: 80px;
 }
 
-.main_user_icons {
-    color: #b1b1b1;
+.notifications {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+/* SEARCH BAR WITH ICON INSIDE */
+.form-group {
+    height: 50px;
+    padding:5px;
+    background-color: #fafafa;
+}
+
+.form-control {
+    transition: border-color 0s, ease-in-out, box-shadow 0s ease-in-out;
+    border:none;
+}
+
+.lens .form-control {
+    padding-left: 2.375rem;
+    background-color: #fff;
+}
+
+.lens .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+    border-right: 1px solid #ced4da;
+}
+
+/* CONTATTI */
+
+.contacts {
+    padding: 10px 20px;
+    display: flex;
+}
+
+.contact_info {
+    flex-grow: 1;
+}
+
+.contact_info span {
+    display: block;
 }
 
 /* HOVER */
+.main_user_icons a:hover {
+    color: #4e4e4e;
+}
+
+.contacts:hover {
+   background-color: var(--secondary-color);
+   cursor: pointer;
     
+}
