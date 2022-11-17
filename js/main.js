@@ -174,7 +174,12 @@ createApp({
     methods : {
         console(){
             console.log(this.contacts[1].messages)
-        }
+        },
+
+        chatSelect(i){
+            this.contact_tab = i;
+            console.log(this.contact_tab);
+     },
     }
     
   }).mount('#app')

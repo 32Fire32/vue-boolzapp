@@ -51,7 +51,7 @@
                               </div>
 
                         </form>
-                    <div v-for="(contact, index) in contacts" class="contacts">
+                    <div v-for="(contact, index) in contacts" class="contacts" @click="chatSelect(index)">
                         <div class="contact_image">
                             <img :src="`img/avatar${contact.avatar}.jpg`" alt="avatar1">
                         </div>
@@ -84,7 +84,7 @@
             </header>
             <div class="chat">
                 <div class="container_messages">
-                    <div v-for="(contact, index) in contacts[0].messages" class="messages" :class="contacts[0].messages[index].status === 'sent' ? 'green' : 'white'">
+                    <div v-for="(contact, index) in contacts[contact_tab].messages" class="messages" :class="contacts[contact_tab].messages[index].status === 'sent' ? 'green' : 'white'">
                             <span>{{contact.message}}</span>
                             <small>{{contact.date}}</small>
                     </div>
