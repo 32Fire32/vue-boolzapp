@@ -79,6 +79,24 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 75px;
+    padding: 10px 0;
+    color:#6b7376;
+}
+
+.chat_form input {
+    border: none;
+    height: 50px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.chat_form form {
+    flex-grow: 1;
+}
+
+.chat_icons {
+    text-align: center;
 }
 
 /* HOVER */
