@@ -4,9 +4,10 @@ const { createApp } = Vue
 createApp({
     data() {
       return {
+        newMess: '',
         contact_tab: 0,
         contacts: [
-            {
+            { 
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
@@ -179,7 +180,20 @@ createApp({
         chatSelect(i){
             this.contact_tab = i;
             console.log(this.contact_tab);
-     },
+        },
+
+        addMessage(){
+            const objNewmess = {
+                date: 'Oggi',
+                message: this.newMess,
+                status: 'sent',
+            };
+            this.contacts.forEach((elem, index) => {
+                this.contacts[index].messages.push(objNewmess);  
+            });
+                         
+            this.newMess="";
+        }
     }
     
   }).mount('#app')

@@ -95,8 +95,8 @@
                     <div class="chat_icons col-1">
                        <a href="#"><span><i class="fa-regular fa-face-smile "></i></span> </a>
                     </div>                    
-                    <form class="col-10">
-                        <input class="form-control" type="text" placeholder="Scrivi un messaggio">
+                    <form class="col-10" @submit.prevent="addMessage(index)">
+                        <input v-model="newMess" class="form-control" type="text" placeholder="Scrivi un messaggio">
                     </form>
                     <div class="chat_icons col-1">
                        <a href="#"><span><i class="fa-solid fa-microphone"></i></span> </a>
