@@ -81,7 +81,6 @@ main {
     justify-content: space-between;
     height: 75px;
     padding: 10px 0;
-    color:#6b7376;
 }
 
 .chat_form input {
@@ -99,7 +98,15 @@ main {
     text-align: center;
 }
 
+.chat_icons a {
+    color:#6b7376;
+}
+
 /* HOVER */
 .active_contact_icons a:hover {
+    color: #4e4e4e;
+}
+
+.chat_icons a:hover {
     color: #4e4e4e;
 }

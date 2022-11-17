@@ -61,6 +61,7 @@ aside {
     height: 50px;
     padding:5px;
     background-color: #fafafa;
+    position: relative;
 }
 
 .form-control {

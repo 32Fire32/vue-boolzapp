@@ -1,4 +1,5 @@
 'strict mode'
+const { createApp } = Vue
 
 createApp({
     data() {
