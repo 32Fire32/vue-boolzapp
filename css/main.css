@@ -39,9 +39,37 @@ main {
     justify-content: space-between;
 }
 
+.container_messages {
+    padding: 20px 30px;
+    display: flex;
+}
+
+.messages {
+    width: 315px;
+    height: 55px;
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+}
+
+.messages small {
+    position: absolute;
+    right: 10px;
+    bottom:10px;
+}
+
+.green {
+    background-color: #d5f9ba;
+}
+
+.white {
+    background-color: #fff;
+}
+
 .chat {
     overflow-y: auto;
     flex-grow: 1;
+    background-image: url(/img/mine.jpg);
 }
 
 /* FOOTER */

@@ -52,6 +52,10 @@ aside {
     margin-left: 10px;
 }
 
+.notifications a {
+    color: #4f7485;
+}
+
 /* SEARCH BAR WITH ICON INSIDE */
 .form-group {
     height: 50px;
