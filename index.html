@@ -57,10 +57,10 @@
                         </div>
                         <div class="contact_info">
                             <span>{{contact.name}}</span>
-                            <small v-for="(message, index) in contact.messages">{{message.message}}</small>
+                            <small>{{contact.messages[1].message}}</small>
                         </div>
                         <div class="contact_date">
-                            <span>12:00</span>
+                            <span>{{contact.messages[1].date}}</span>
                         </div>                               
                     </div>              
                 </div>     

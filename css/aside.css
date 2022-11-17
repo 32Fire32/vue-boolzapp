@@ -1,7 +1,7 @@
 /* ASIDE */
 
 aside {
-    width: 535px;
+    width: 800px;
 }
 
 .aside-container {
@@ -96,6 +96,10 @@ aside {
 
 .contact_info {
     flex-grow: 1;
+}
+
+.contact_date {
+    text-align: right;
 }
 
 .contact_info span {

@@ -174,7 +174,7 @@ createApp({
 
     methods : {
         console(){
-            console.log(this.contacts[1].messages)
+            console.log(this.contacts.messages)
         },
 
         chatSelect(i){
@@ -188,12 +188,29 @@ createApp({
                 message: this.newMess,
                 status: 'sent',
             };
-            this.contacts.forEach((elem, index) => {
-                this.contacts[index].messages.push(objNewmess);  
-            });
-                         
+            this.contacts[this.contact_tab].messages.push(objNewmess);                          
             this.newMess="";
+        },
+
+        answerMess(){
+            const objautomess = {
+                date: 'Oggi',
+                message: 'Ok!',
+                status: 'received',
+            };
+            this.contacts[this.contact_tab].messages.push(objautomess);
+        },
+
+        autoAnsw(){
+            setTimeout(this.answerMess, 1000);
         }
+
+    },
+    updated(){
+        console.log(this.contacts[this.contact_tab].messages.length)
+        if(this.contacts[this.contact_tab].messages.length > 3){
+           this.autoAnsw(); 
+        }        
     }
     
   }).mount('#app')
