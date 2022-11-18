@@ -33,7 +33,6 @@ header {
 main {
     overflow-y: auto;
     width: calc(100vw - 3.125rem);
-    background-color: red;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -48,7 +47,7 @@ main {
 
 .messages {
     width: 315px;
-    height: 55px;
+    height: 80px;
     border-radius: 10px;
     padding: 10px;
     position: relative;
@@ -62,13 +61,13 @@ main {
     font-size: 0.6rem;
 }
 
-.green {
+.sent {
     background-color: #d5f9ba;
 }
 
-.white {
+.received {
     background-color: #fff;
-    margin-right: 220px;
+    margin-right: 400px;
 }
 
 .chat {

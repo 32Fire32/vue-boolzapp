@@ -4,6 +4,7 @@ const { createApp } = Vue
 createApp({
     data() {
       return {
+        searchUser: '',
         newMess: '',
         contact_tab: 0,
         contacts: [
@@ -174,7 +175,7 @@ createApp({
 
     methods : {
         console(){
-            console.log(this.contacts.messages)
+            console.log(this.searchUser)
         },
 
         chatSelect(i){
@@ -203,15 +204,21 @@ createApp({
 
         autoAnsw(){
             setTimeout(this.answerMess, 1000);
+        },
+
+        filter(contact){
+            if (this.searchUser ==''){
+                return true;
+            }
+            return contact.name.toLowerCase(),
+            startsWith(this.searchUser.toLowerCase()); 
         }
 
     },
-    updated(){
-        console.log(this.contacts[this.contact_tab].messages.length)
-        if(this.contacts[this.contact_tab].messages.length > 3){
-           this.autoAnsw(); 
-        }        
-    }
+
+    beforeUpdated(){
+            this.autoAnsw();
+        }
     
   }).mount('#app')
 

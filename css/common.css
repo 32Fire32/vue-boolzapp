@@ -1,4 +1,9 @@
 /* COMMON */
+body {
+    height: 100vh;
+    display: flex;
+    background: linear-gradient(to bottom, #009688 20%, #dadbd4 20%);
+}
 
 .mainpage-container {
     margin:auto;
@@ -8,15 +13,10 @@
     justify-content: space-between;
 }
 
-body {
-    height: 100vh;
-    display: flex;
-    color: red;
-}
-
 /* TYPO */
+
 body {
-    font-family: 'Lato', sans-serif;   
+    font-family: 'Lato', sans-serif;
 }
 
 small {
