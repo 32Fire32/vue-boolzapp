@@ -23,21 +23,17 @@ small {
     color: #b6b9bb;
 }
 
-/* BOTTONI */
-
-
-
 /* IMMAGINI */
 
 img {
-    width: 50px;
+    width: 3.125rem;
     border-radius: 100%;
 }
 
 /* FA-SOLID */
 
 .fa-solid {
-    margin: 0 5px;
+    margin: 0 0.3125rem;
 }
 
 

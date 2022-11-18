@@ -22,58 +22,65 @@
 </head>
 <body>
     <div class="mainpage-container" id="app">
+        <!-- CONTENUTO LATERALE DELLA PAGINA -->
         <aside>
-                <div class="aside-container">
-                    <div class="main_user">
-                        <div class="main_user_info">
-                            <img src="img/avatar_io.jpg" alt="main_avatar">
-                            <span>Nicola</span>
-                        </div>
-                        <div class="main_user_icons">
-                            <a href="#"><i class="fa-solid fa-circle-notch"></i></a>
-                            <a href="#"><i class="fa-solid fa-message"></i></a>
-                            <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
-                        </div>
+            <div class="aside-container">
+                <div class="main_user">
+                    <div class="main_user_info">
+                        <img src="img/avatar_io.jpg" alt="main_avatar">
+                        <span>Nicola</span>
                     </div>
-                    <div class="new_notifications">
-                        <div class="mute">
-                            <i class="fa-solid fa-bell-slash"></i>
-                        </div>
-                        <div class="notifications">
-                            <span>Ricevi notifiche di nuovi messaggi</span>
-                            <a href="#">Attiva notifiche desktop</a>
-                        </div>                        
+                    <div class="main_user_icons">
+                        <a href="#"><i class="fa-solid fa-circle-notch"></i></a>
+                        <a href="#"><i class="fa-solid fa-message"></i></a>
+                        <a href="#"><i class="fa-solid fa-ellipsis-vertical"></i></a>
                     </div>
-                        <form>
-                            <div class="form-group lens">
-                                <span class="fa fa-search form-control-feedback"></span>
-                                <input type="text" class="form-control shadow-none" placeholder="Cerca o inizia una nuova chat" v-model="searchUser" @keyup="filter(contact)">
-                              </div>
-
-                        </form>
-                    <div v-for="(contact, index) in contacts" class="contacts" :class="{active : index === contact_tab}" @click="chatSelect(index)">
-                        <div class="contact_image">
-                            <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
+                </div>
+                <div class="new_notifications">
+                    <div class="mute">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div class="notifications">
+                        <span>Ricevi notifiche di nuovi messaggi</span>
+                        <a href="#">Attiva notifiche desktop</a>
+                    </div>                        
+                </div>
+                    <form>
+                        <div class="form-group lens">
+                            <span class="fa fa-search form-control-feedback"></span>
+                            <input type="text" class="form-control shadow-none" 
+                                    placeholder="Cerca o inizia una nuova chat" 
+                                    v-model="searchUser" @keyup="filteredList">
                         </div>
-                        <div class="contact_info">
-                            <span>{{contact.name}}</span>
-                            <small>{{contact.messages[contact.messages.length-1].message}}</small>
-                        </div>
-                        <div class="contact_date">
-                            <span>{{contact.messages[contact.messages.length-1].date}}</span>
-                        </div>                               
-                    </div>              
-                </div>     
+                    </form>
+                <div v-for="(contact, index) in contacts" 
+                    class="contacts" 
+                    :class="{active : index === contact_tab}" 
+                    @click="chatSelect(index)"
+                    v-show="contacts[index].visible">
+                    <div class="contact_image">
+                        <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
+                    </div>
+                    <div class="contact_info">
+                        <span>{{contact.name}}</span>
+                        <small>{{contact.messages[contact.messages.length-1].message}}</small>
+                    </div>
+                    <div class="contact_date">
+                        <span>{{contact.messages[contact.messages.length-1].date}}</span>
+                    </div>                       
+                </div>            
+            </div>     
         </aside>
+        <!-- CONTENUTO PRINCIPALE DELLA PAGINA -->
         <main>
             <header>
                 <div class="active_contact_chat">
-                    <div class="active_contact_image" @click="filter">
-                        <img src="img/avatar_1.jpg" alt="avatar1">
+                    <div class="active_contact_image">
+                        <img :src="`img/avatar${contacts[contact_tab].avatar}.jpg`" :alt="`avatar${contacts[contact_tab].avatar}`">
                     </div>
                     <div class="active_contact_info">
-                        <span>Michele</span>
-                        <small>Ultimo messaggio inviato</small>
+                        <span>{{ contacts[contact_tab].name }}</span>
+                        <small>{{ contacts[contact_tab].messages[contacts[contact_tab].messages.length-1].date }}</small>
                     </div>
                     <div class="active_contact_icons">
                         <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
@@ -84,12 +91,21 @@
             </header>
             <div class="chat">
                 <div class="container_messages">
-                    <div v-for="(contact, index) in contacts[contact_tab].messages" class="messages" :class="contact.status">
+                    <div v-for="(contact, index) in contacts[contact_tab].messages" class="messages" :class="contact.status" >
+                        <div class="dropdown"> 
+                            <button class="down" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-angle-down" @click="delMess(contact)"></i></button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">Message Info</a></li>
+                              <li><a class="dropdown-item" href="#">Delete Message</a></li>
+                            </ul>
+                        </div>
                             <span>{{contact.message}}</span>
                             <small>{{contact.date}}</small>
+                            <div class="down"></div>
                     </div>
-                </div>
+                </div>        
             </div>
+            <!-- FOOTER DELLA PAGINA -->
             <footer>
                 <div class="chat_form">
                     <div class="chat_icons col-1">

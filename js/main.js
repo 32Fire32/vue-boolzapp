@@ -1,7 +1,8 @@
 'strict mode'
-const { createApp } = Vue
+const { createApp } = Vue;
 
 createApp({
+    
     data() {
       return {
         searchUser: '',
@@ -172,6 +173,7 @@ createApp({
         ]
       }      
     },
+    
 
     methods : {
         console(){
@@ -206,19 +208,31 @@ createApp({
             setTimeout(this.answerMess, 1000);
         },
 
-        filter(contact){
-            if (this.searchUser ==''){
-                return true;
-            }
-            return contact.name.toLowerCase(),
-            startsWith(this.searchUser.toLowerCase()); 
-        }
+        filteredList() {
+            this.contacts.forEach((element, i) => {
+               this.contacts[i].visible = false;
+                if(this.contacts[i].name.toLowerCase().includes(this.searchUser.toLowerCase())) {
+                    this.contacts[i].visible = true;
+                }
+            })
+        },
 
-    },
+        delMess(contact){
+            // this.contacts[this.contact_tab].messages.forEach((element, i) => {
+            //     console.log(index);
+            //     console.log(this.contacts[this.contact_tab].messages[i].message);
+            //     // this.contacts[contact_tab].messages.splice(index, 1);
+            // });
+            console.log(contact);
+            contact.splice(0, 1);
+          
+        },
 
     beforeUpdated(){
             this.autoAnsw();
         }
+    }
+        
     
   }).mount('#app')
 

@@ -3,7 +3,7 @@
 header {
     width: 100%;
     background-color: var(--secondary-color);
-    height: 70px;
+    height: 4.375rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,7 +11,7 @@ header {
 
 .active_contact_chat {
     width: 100%;
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem;
     display: flex;
     align-items: center;
 }
@@ -39,25 +39,26 @@ main {
 }
 
 .container_messages {
-    padding: 20px 30px;
+    padding: 1.25rem 1.875rem;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    position: relative;
 }
 
 .messages {
-    width: 315px;
-    height: 80px;
-    border-radius: 10px;
-    padding: 10px;
+    width: 19.6875rem;
+    height: 5rem;
+    border-radius: 0.625rem;
+    padding: 0.625rem;
     position: relative;
-    margin: 10px;
+    margin: 0.625rem;
 }
 
 .messages small {
     position: absolute;
-    right: 10px;
-    bottom:2px;
+    right: 0.625rem;
+    bottom:0.125rem;
     font-size: 0.6rem;
 }
 
@@ -67,13 +68,26 @@ main {
 
 .received {
     background-color: #fff;
-    margin-right: 400px;
+    margin-right: 25rem;
 }
 
 .chat {
     overflow-y: auto;
     flex-grow: 1;
     background-image: url(/img/mine.jpg);
+}
+
+.btn {
+    position: absolute;
+    right: 0;
+}
+
+.down {
+    background-color: transparent;
+    border:none;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 /* FOOTER */
@@ -83,15 +97,15 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 75px;
-    padding: 10px 0;
+    height: 4.6875rem;
+    padding: 0.625rem 0;
 }
 
 .chat_form input {
     border: none;
-    height: 50px;
+    height: 3.125rem;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
 }
 
 .chat_form form {
