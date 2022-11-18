@@ -93,10 +93,10 @@
                 <div class="container_messages">
                     <div v-for="(contact, index) in contacts[contact_tab].messages" class="messages" :class="contact.status" >
                         <div class="dropdown"> 
-                            <button class="down" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-angle-down" @click="delMess(contact)"></i></button>
+                            <button class="down" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-angle-down" ></i></button>
                             <ul class="dropdown-menu">
                               <li><a class="dropdown-item" href="#">Message Info</a></li>
-                              <li><a class="dropdown-item" href="#">Delete Message</a></li>
+                              <li><a class="dropdown-item" href="#" @click="delMess(contact, index)">Delete Message</a></li>
                             </ul>
                         </div>
                             <span>{{contact.message}}</span>

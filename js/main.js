@@ -176,15 +176,13 @@ createApp({
     
 
     methods : {
-        console(){
-            console.log(this.searchUser)
-        },
-
+        // ASSOCIO UNA VARIABILE ESTERNA ALL'INDEX DELL'ARRAY CICLATO IN HTML
         chatSelect(i){
             this.contact_tab = i;
             console.log(this.contact_tab);
         },
-
+        // CREO E AGGIUNGO UN NUOVO OGGETTO MESSAGGIO A QUELLO GIA' ESISTENTE
+        //PROVENIENTE DALL'INPUT
         addMessage(){
             const objNewmess = {
                 date: 'Oggi',
@@ -194,7 +192,8 @@ createApp({
             this.contacts[this.contact_tab].messages.push(objNewmess);                          
             this.newMess="";
         },
-
+        // CREO E AGGIUNGO UN NUOVO OGGETTO MESSAGGIO A QUELLO GIA' ESISTENTE
+        //GENERATO COME RISPOSTA AUTOMATICA
         answerMess(){
             const objautomess = {
                 date: 'Oggi',
@@ -207,7 +206,8 @@ createApp({
         autoAnsw(){
             setTimeout(this.answerMess, 1000);
         },
-
+        // PARAGONO IL VALORE CHE L'UTENTE HA INSERITO NELL'INPUT CON QUELLI GIA' ESISTENTI
+        // E FACCIO COMPARIRE QUANDO LA CONDIZIONE E' SODDISFATTA
         filteredList() {
             this.contacts.forEach((element, i) => {
                this.contacts[i].visible = false;
@@ -217,15 +217,9 @@ createApp({
             })
         },
 
-        delMess(contact){
-            // this.contacts[this.contact_tab].messages.forEach((element, i) => {
-            //     console.log(index);
-            //     console.log(this.contacts[this.contact_tab].messages[i].message);
-            //     // this.contacts[contact_tab].messages.splice(index, 1);
-            // });
-            console.log(contact);
-            contact.splice(0, 1);
-          
+        delMess(contact, i){
+            console.log(i)
+            this.contacts[this.contact_tab].messages.splice(i , 1);                      
         },
 
     beforeUpdated(){

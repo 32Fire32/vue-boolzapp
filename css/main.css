@@ -46,10 +46,10 @@ main {
 }
 
 .messages {
-    width: 19.6875rem;
+    width: 21rem;
     height: 5rem;
     border-radius: 0.625rem;
-    padding: 0.625rem;
+    padding: 1rem;
     position: relative;
     margin: 0.625rem;
 }
@@ -85,8 +85,13 @@ main {
     background-color: transparent;
     border:none;
     position: absolute;
-    right: 0;
-    top: 0;
+    right: -0.625rem;
+    top: -0.9375rem;
+    display: none;
+}
+
+.container_messages:hover .down {
+    display: block;
 }
 
 /* FOOTER */
