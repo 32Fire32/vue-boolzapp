@@ -98,6 +98,18 @@ aside {
 
 /* CONTATTI */
 
+form {
+    position: relative;
+}
+
+.noResults {
+    position: absolute;
+    bottom: -40px;
+    left: 20px;
+    font-size: 1.2rem;
+    z-index: -1;
+}
+
 .contacts {
     padding: 0.625rem 1.25rem;
     display: flex;

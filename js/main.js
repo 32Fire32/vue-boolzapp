@@ -214,7 +214,6 @@ createApp({
                this.contacts[i].visible = false;
                 if(this.contacts[i].name.toLowerCase().includes(this.searchUser.toLowerCase())) {
                     this.contacts[i].visible = true;
-                    // let include = this.contacts[i].name.toLowerCase().includes(this.searchUser.toLowerCase());
                 }
             })
         },
