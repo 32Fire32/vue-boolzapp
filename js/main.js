@@ -5,6 +5,7 @@ createApp({
     
     data() {
       return {
+        now: '',
         searchUser: '',
         newMess: '',
         contact_tab: 0,
@@ -185,7 +186,7 @@ createApp({
         //PROVENIENTE DALL'INPUT
         addMessage(){
             const objNewmess = {
-                date: 'Oggi',
+                date: this.now,
                 message: this.newMess,
                 status: 'sent',
             };
@@ -196,7 +197,7 @@ createApp({
         //GENERATO COME RISPOSTA AUTOMATICA
         answerMess(){
             const objautomess = {
-                date: 'Oggi',
+                date: this.now,
                 message: 'Ok!',
                 status: 'received',
             };
@@ -213,18 +214,30 @@ createApp({
                this.contacts[i].visible = false;
                 if(this.contacts[i].name.toLowerCase().includes(this.searchUser.toLowerCase())) {
                     this.contacts[i].visible = true;
+                    // let include = this.contacts[i].name.toLowerCase().includes(this.searchUser.toLowerCase());
                 }
             })
         },
-
+        // TRAMITE L'INDEX CICLATO IN HTML DEI MESSAGGI POSSO RIMUOVERLI CON SPLICE
         delMess(contact, i){
             console.log(i)
             this.contacts[this.contact_tab].messages.splice(i , 1);                      
         },
-
-    beforeUpdated(){
-            this.autoAnsw();
+        // CONVERTE IL FORMAT DI DATE
+        formatMessageData(data){
+            return moment(data, "DD/MM/YYYY h:mm:ss").fromNow();
+        },
+        // TRAMITE IL METODO DATE MI PROCURO LA DATA ATTUALE DAL PC E TRAMITE
+        //LA VARIABILE NOW LA MANDO ALLE NUOVE CLASSI OGGETTO 
+        newMessageDate(){
+            this.now = new Date().toLocaleString();
+            console.log(this.now);
         }
+
+    },
+
+    created(){
+        moment.locale('it');
     }
         
     

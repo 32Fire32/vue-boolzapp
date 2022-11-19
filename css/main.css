@@ -61,6 +61,10 @@ main {
     font-size: 0.6rem;
 }
 
+.chat small {
+    font-size: 1rem;
+}
+
 .sent {
     background-color: #d5f9ba;
     align-self: flex-end;
@@ -87,11 +91,14 @@ main {
     position: absolute;
     right: -0.625rem;
     top: -0.9375rem;
-    display: none;
 }
 
-.container_messages:hover .down {
-    display: block;
+#mouse_over {
+    opacity: 0;
+}
+
+#mouse_over:hover {
+    opacity: 1;
 }
 
 /* FOOTER */
