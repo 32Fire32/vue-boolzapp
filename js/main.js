@@ -5,7 +5,9 @@ createApp({
     
     data() {
       return {
-        chuck:'',
+        jokeNumber: 0,
+        firstPartJoke: '',
+        secondPartJoke: '',
         now: '',
         searchUser: '',
         newMess: '',
@@ -199,15 +201,27 @@ createApp({
         answerMess(){
             const objautomess = {
                 date: this.now,
-                message: this.chuck,
+                message: this.firstPartJoke,
                 status: 'received',
             };
             this.contacts[this.contact_tab].messages.push(objautomess);
         },
 
+        punchJoke(){
+            const objpunch = {
+                date: this.now,
+                message: this.secondPartJoke,
+                status: 'received',
+            };
+            this.contacts[this.contact_tab].messages.push(objpunch);
+        },
+
         autoAnsw(){
             setTimeout(this.answerMess, 1000);
+            setTimeout(this.punchJoke, 3000);
+
         },
+
         // PARAGONO IL VALORE CHE L'UTENTE HA INSERITO NELL'INPUT CON QUELLI GIA' ESISTENTI
         // E FACCIO COMPARIRE QUANDO LA CONDIZIONE E' SODDISFATTA
         filteredList() {
@@ -236,13 +250,14 @@ createApp({
         //LA VARIABILE NOW LA MANDO ALLE NUOVE CLASSI OGGETTO
         this.now = new Date().toLocaleString();
         // API RISPOSTE AUTOMATICHE
-        axios.get('https://api.chucknorris.io/jokes/random')
+        axios.get('https://api.sampleapis.com/jokes/goodJokes')
             .then((response) => {
-                this.chuck = response.data.value;
-                console.log(response.data.value)
+                console.log(response);
+                this.jokeNumber = Math.floor(Math.random() * 379)
+                this.firstPartJoke = response.data[this.jokeNumber].setup;
+                this.secondPartJoke = response.data[this.jokeNumber].punchline;
             });
-    }
-        
+    },   
     
   }).mount('#app')
 
