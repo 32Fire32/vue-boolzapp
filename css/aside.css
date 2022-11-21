@@ -35,7 +35,6 @@ aside {
 .fa-bell-slash {
     color: #8edafc;
     font-size: 1.5rem;
-
 }
 
 .contacts {
@@ -44,7 +43,6 @@ aside {
 
 .active {
     background-color: var(--secondary-color);
-
 }
 
 .new_notifications {
@@ -93,7 +91,7 @@ aside {
     text-align: center;
     pointer-events: none;
     color: #aaa;
-    border-right: 1px solid #ced4da;
+    border-right: 0.0625rem solid #ced4da;
 }
 
 /* CONTATTI */
@@ -104,8 +102,8 @@ form {
 
 .noResults {
     position: absolute;
-    bottom: -40px;
-    left: 20px;
+    bottom: -2.5rem;
+    left: 1.25rem;
     font-size: 1.2rem;
     z-index: -1;
 }

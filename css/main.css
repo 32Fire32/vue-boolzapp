@@ -30,7 +30,7 @@ header {
 
 /* MAIN */
 
-main, main-welcome {
+main, .welcome {
     overflow-y: auto;
     width: calc(100vw - 3.125rem);
     display: flex;

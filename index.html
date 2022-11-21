@@ -67,8 +67,7 @@
                 <div v-for="(contact, index) in contacts" 
                     class="contacts" 
                     :class="{active : index === contact_tab}" 
-                    @click="chatSelect(index)"
-                    v-show="contacts[index].visible">
+                    @click="chatSelect(index)">
                     <div class="contact_image">
                         <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                     </div>
@@ -86,7 +85,7 @@
         </aside>
         <!-- CONTENUTO PRINCIPALE DELLA PAGINA -->
         <!-- PAGINA DI BENVENUTO -->
-        <main-welcome v-if="start === false">
+        <div class="welcome" v-if="start === false">
             <!-- AREA DI CHAT -->
             <div class="chat p-5">
                 <div class="container_messages align-items-center justify-content-between">
@@ -101,7 +100,7 @@
                     </div>
                 </div>        
             </div>
-        </main-welcome>
+        </div>
         <!-- CORPO DELLA CHAT -->
         <main v-if="start === true">
             <header>
@@ -144,7 +143,7 @@
                     <div class="chat_icons col-1">
                        <a href="#"><span><i class="fa-regular fa-face-smile "></i></span> </a>
                     </div>                    
-                    <form class="col-10" @submit.prevent="addMessage(index)">
+                    <form class="col-10" @submit.prevent="addMessage()">
                         <input v-model="newMess" class="form-control" type="text" placeholder="Scrivi un messaggio" @keyup.enter="autoAnsw">
                     </form>
                     <div class="chat_icons col-1">

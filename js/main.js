@@ -219,8 +219,8 @@ createApp({
         //DETTA I TEMPI DELLE DUE RISPOSTE
         autoAnsw(){
             jokeGenerator();
-            setTimeout(this.answerMess, 1000);
-            setTimeout(this.punchJoke, 3000);
+            setTimeout(this.answerMess, 2000);
+            setTimeout(this.punchJoke, 4000);
         },
 
         // PARAGONO IL VALORE CHE L'UTENTE HA INSERITO NELL'INPUT CON QUELLI GIA' ESISTENTI
@@ -245,7 +245,7 @@ createApp({
         //FUNZIONE RICHIAMATA DALL'HTML PER ENTRARE NEL MAIN
         on(){
             this.start = true;
-        }         
+        },
     },
     created(){
         moment.locale('it');
@@ -256,14 +256,13 @@ createApp({
         jokeGenerator = () => {
             axios.get('https://api.sampleapis.com/jokes/goodJokes')
                 .then((response) => {
-                    console.log(response);
                     this.jokeNumber = Math.floor(Math.random() * 379)
                     this.firstPartJoke = response.data[this.jokeNumber].setup;
                     this.secondPartJoke = response.data[this.jokeNumber].punchline;
                 });
         }
         
-    },      
+    },   
   }).mount('#app')
 
 
