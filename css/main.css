@@ -30,7 +30,7 @@ header {
 
 /* MAIN */
 
-main {
+main, main-welcome {
     overflow-y: auto;
     width: calc(100vw - 3.125rem);
     display: flex;
@@ -39,10 +39,16 @@ main {
 }
 
 .container_messages {
+    height: 100%;
     padding: 1.25rem 1.875rem;
     display: flex;
     flex-direction: column;
     position: relative;
+}
+
+.welcome-img img {
+    width: 250px;
+    border: 8px solid black;
 }
 
 .messages {

@@ -5,6 +5,7 @@ createApp({
     
     data() {
       return {
+        start: false,
         jokeNumber: 0,
         firstPartJoke: '',
         secondPartJoke: '',
@@ -206,7 +207,7 @@ createApp({
             };
             this.contacts[this.contact_tab].messages.push(objautomess);
         },
-
+        //CREA IL SECONDO MESSAGGIO AUTOMATICO
         punchJoke(){
             const objpunch = {
                 date: this.now,
@@ -215,7 +216,7 @@ createApp({
             };
             this.contacts[this.contact_tab].messages.push(objpunch);
         },
-
+        //DETTA I TEMPI DELLE DUE RISPOSTE
         autoAnsw(){
             setTimeout(this.answerMess, 1000);
             setTimeout(this.punchJoke, 3000);
@@ -241,6 +242,10 @@ createApp({
         formatMessageData(data){
             return moment(data, "DD/MM/YYYY h:mm:ss").fromNow();
         },
+        //FUNZIONE RICHIAMATA DALL'HTML PER ENTRARE NEL MAIN
+        on(){
+            this.start = true;
+        }
          
     },
 

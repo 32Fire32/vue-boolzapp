@@ -29,7 +29,7 @@
 <body>
     <div class="mainpage-container" id="app">
         <!-- CONTENUTO LATERALE DELLA PAGINA -->
-        <aside>
+        <aside @click="on">
             <div class="aside-container">
                 <div class="main_user">
                     <div class="main_user_info">
@@ -85,7 +85,25 @@
             </div>     
         </aside>
         <!-- CONTENUTO PRINCIPALE DELLA PAGINA -->
-        <main>
+        <!-- PAGINA DI BENVENUTO -->
+        <main-welcome v-if="start === false">
+            <!-- AREA DI CHAT -->
+            <div class="chat p-5">
+                <div class="container_messages align-items-center justify-content-between">
+                    <div class="text-center fs-1">
+                        <span>Benvenuto, Nicola!</span>
+                    </div>
+                    <div class="active_contact_image welcome-img">
+                        <img src="img/avatar_nicola.jpg" alt="nicola">
+                    </div>
+                    <div class="text-center fs-1">
+                        <span>Clicca sui contatti per iniziare!</span>
+                    </div>
+                </div>        
+            </div>
+        </main-welcome>
+        <!-- CORPO DELLA CHAT -->
+        <main v-if="start === true">
             <header>
                 <div class="active_contact_chat">
                     <div class="active_contact_image">
