@@ -23,6 +23,8 @@
     <script src="https://momentjs.com/downloads/moment.js"></script>
     <!-- moment locales js -->
     <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <div class="mainpage-container" id="app">
@@ -49,6 +51,7 @@
                         <a href="#">Attiva notifiche desktop</a>
                     </div>                        
                 </div>
+                <!-- INPUT DI RICERCA CONTATTI -->
                     <form>
                         <div class="form-group lens">
                             <span class="fa fa-search form-control-feedback"></span>
@@ -60,6 +63,7 @@
                             <span>Nessun risultato</span>
                         </div>
                     </form>
+                <!-- CONTATTI -->
                 <div v-for="(contact, index) in contacts" 
                     class="contacts" 
                     :class="{active : index === contact_tab}" 
@@ -99,6 +103,7 @@
                     </div>
                 </div>    
             </header>
+            <!-- AREA DI CHAT -->
             <div class="chat">
                 <div class="container_messages">
                     <div v-if="contacts[contact_tab].messages.length != 0" v-for="(contact, index) in contacts[contact_tab].messages" class="messages" :class="contact.status" >

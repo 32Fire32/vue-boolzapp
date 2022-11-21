@@ -47,7 +47,7 @@ main {
 
 .messages {
     width: 21rem;
-    height: 5rem;
+    min-height: 5rem;
     border-radius: 0.625rem;
     padding: 1rem;
     position: relative;

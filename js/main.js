@@ -5,6 +5,7 @@ createApp({
     
     data() {
       return {
+        chuck:'',
         now: '',
         searchUser: '',
         newMess: '',
@@ -198,7 +199,7 @@ createApp({
         answerMess(){
             const objautomess = {
                 date: this.now,
-                message: 'Ok!',
+                message: this.chuck,
                 status: 'received',
             };
             this.contacts[this.contact_tab].messages.push(objautomess);
@@ -226,17 +227,20 @@ createApp({
         formatMessageData(data){
             return moment(data, "DD/MM/YYYY h:mm:ss").fromNow();
         },
-        // TRAMITE IL METODO DATE MI PROCURO LA DATA ATTUALE DAL PC E TRAMITE
-        //LA VARIABILE NOW LA MANDO ALLE NUOVE CLASSI OGGETTO 
-        newMessageDate(){
-            this.now = new Date().toLocaleString();
-            console.log(this.now);
-        }
-
+         
     },
 
     created(){
         moment.locale('it');
+        // TRAMITE IL METODO DATE MI PROCURO LA DATA ATTUALE DAL PC E TRAMITE
+        //LA VARIABILE NOW LA MANDO ALLE NUOVE CLASSI OGGETTO
+        this.now = new Date().toLocaleString();
+        // API RISPOSTE AUTOMATICHE
+        axios.get('https://api.chucknorris.io/jokes/random')
+            .then((response) => {
+                this.chuck = response.data.value;
+                console.log(response.data.value)
+            });
     }
         
     
