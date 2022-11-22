@@ -6,6 +6,7 @@ createApp({
     data() {
       return {
         noResults: false,
+        x: 0,
         start: false,
         jokeNumber: 0,
         firstPartJoke: '',
@@ -180,14 +181,15 @@ createApp({
       }      
     },
     computed : {
-        noFound(){
+        notFound(){
             this.contacts.forEach((element, i) => {
-               console.log(this.contacts[i].visible);
-
-             return this.contacts[i].visible === false ? true : false 
+                this.contacts[i].visible === false ? this.x++ : this.x = 0;
              })
-            
-        }
+             console.log("x è " + this.x);
+
+             return this.x >= 8 ? 'Nessun risultato' :  ''
+
+        },
     },
     
 

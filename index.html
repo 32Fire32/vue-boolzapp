@@ -59,12 +59,7 @@
                                     placeholder="Cerca o inizia una nuova chat" 
                                     v-model="searchUser" @keyup="filteredList">
                         </div>
-                        <div class="noResults">
-                            <span >Nessun risultato</span>
-                        </div>
-                        <div v-show="noFound">
-                            <span >Nessun risultato</span>
-                        </div>
+                            <span>{{ notFound }}</span>
                     </form>
                 <!-- CONTATTI -->
                 <div v-for="(contact, index) in contacts" 
