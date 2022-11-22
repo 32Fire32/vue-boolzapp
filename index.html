@@ -67,7 +67,8 @@
                 <div v-for="(contact, index) in contacts" 
                     class="contacts" 
                     :class="{active : index === contact_tab}" 
-                    @click="chatSelect(index)">
+                    @click="chatSelect(index)"
+                    v-show="contacts[index].visible">
                     <div class="contact_image">
                         <img :src="`img/avatar${contact.avatar}.jpg`" :alt="contact.name">
                     </div>
