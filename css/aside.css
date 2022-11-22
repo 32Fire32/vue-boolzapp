@@ -7,9 +7,9 @@ aside {
 .aside-container {
     display: flex;
     flex-direction: column;
-    height: 100%;
     overflow-y: auto;
     background-color: #fff;
+    height: 100%;
 }
 
 .main_user {

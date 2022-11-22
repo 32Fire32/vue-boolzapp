@@ -5,6 +5,7 @@ createApp({
     
     data() {
       return {
+        noResults: false,
         start: false,
         jokeNumber: 0,
         firstPartJoke: '',
@@ -178,6 +179,16 @@ createApp({
         ]
       }      
     },
+    computed : {
+        noFound(){
+            this.contacts.forEach((element, i) => {
+               console.log(this.contacts[i].visible);
+
+             return this.contacts[i].visible === false ? true : false 
+             })
+            
+        }
+    },
     
 
     methods : {
@@ -199,28 +210,28 @@ createApp({
         },
         // CREO E AGGIUNGO UN NUOVO OGGETTO MESSAGGIO A QUELLO GIA' ESISTENTE
         //GENERATO COME RISPOSTA AUTOMATICA
-        answerMess(){
+        answerMess(i){
             const objautomess = {
                 date: this.now,
                 message: this.firstPartJoke,
                 status: 'received',
             };
-            this.contacts[this.contact_tab].messages.push(objautomess);
+            this.contacts[i].messages.push(objautomess);
         },
         //CREA IL SECONDO MESSAGGIO AUTOMATICO
-        punchJoke(){
+        punchJoke(n){
             const objpunch = {
                 date: this.now,
                 message: this.secondPartJoke,
                 status: 'received',
             };
-            this.contacts[this.contact_tab].messages.push(objpunch);
+            this.contacts[n].messages.push(objpunch);
         },
         //DETTA I TEMPI DELLE DUE RISPOSTE
         autoAnsw(){
             jokeGenerator();
-            setTimeout(this.answerMess, 2000);
-            setTimeout(this.punchJoke, 4000);
+            setTimeout(this.answerMess.bind(null, this.contact_tab), 2000);
+            setTimeout(this.punchJoke.bind(null, this.contact_tab), 4000);
         },
 
         // PARAGONO IL VALORE CHE L'UTENTE HA INSERITO NELL'INPUT CON QUELLI GIA' ESISTENTI
@@ -247,6 +258,7 @@ createApp({
             this.start = true;
         },
     },
+    
     created(){
         moment.locale('it');
         // TRAMITE IL METODO DATE MI PROCURO LA DATA ATTUALE DAL PC E TRAMITE
